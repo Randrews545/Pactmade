@@ -1,0 +1,1 @@
+class_name ICE extends AnimatableBody2D

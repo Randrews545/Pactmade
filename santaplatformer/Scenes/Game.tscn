@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://11l3eeqih87x"]
+
+[ext_resource type="PackedScene" uid="uid://cqpow7pw6q4cd" path="res://Scenes/platform.tscn" id="1_glvxl"]
+[ext_resource type="PackedScene" uid="uid://mep7oa3txqrl" path="res://Scenes/meltable_ice_platform.tscn" id="2_k00bs"]
+[ext_resource type="PackedScene" uid="uid://xyrrq1n72088" path="res://Scenes/player.tscn" id="2_pp30j"]
+
+[node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="platform" parent="Platforms" instance=ExtResource("1_glvxl")]
+position = Vector2(0, -19)
+
+[node name="meltable_ice_platform" parent="Platforms" instance=ExtResource("2_k00bs")]
+position = Vector2(31, -19)
+
+[node name="meltable_ice_platform2" parent="Platforms" instance=ExtResource("2_k00bs")]
+position = Vector2(62, -19)
+
+[node name="Player" parent="." instance=ExtResource("2_pp30j")]
+position = Vector2(0, -31)

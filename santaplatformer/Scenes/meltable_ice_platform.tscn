@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://mep7oa3txqrl"]
+
+[ext_resource type="Script" path="res://Scripts/meltable_ice_platform.gd" id="1_1qo8a"]
+[ext_resource type="Texture2D" uid="uid://bmaj3832ougjq" path="res://Assets/TempAssets/sprites/platforms.png" id="1_6fmpq"]
+[ext_resource type="Script" path="res://Scripts/ice_platform.gd" id="1_dj5fv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3a8n"]
+size = Vector2(28, 7)
+
+[node name="meltable_ice_platform" type="Node2D"]
+script = ExtResource("1_1qo8a")
+
+[node name="ice_platform" type="AnimatableBody2D" parent="."]
+script = ExtResource("1_dj5fv")
+
+[node name="Sprite2D" type="Sprite2D" parent="ice_platform"]
+texture = ExtResource("1_6fmpq")
+region_enabled = true
+region_rect = Rect2(15.9069, 48.415, 31.853, 8.72617)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ice_platform"]
+shape = SubResource("RectangleShape2D_k3a8n")
