@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://11l3eeqih87x"]
+
+[ext_resource type="PackedScene" uid="uid://mep7oa3txqrl" path="res://Scenes/meltable_ice_platform.tscn" id="2_k00bs"]
+[ext_resource type="PackedScene" uid="uid://xyrrq1n72088" path="res://Scenes/player.tscn" id="2_pp30j"]
+[ext_resource type="Texture2D" uid="uid://bnm1bnlsya8eh" path="res://Assets/Test Assets/SantaAssets_V3.png" id="3_nl5dn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yu1k"]
+texture = ExtResource("3_nl5dn")
+texture_region_size = Vector2i(360, 360)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pt2pi"]
+sources/0 = SubResource("TileSetAtlasSource_1yu1k")
+
+[node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="meltable_ice_platform" parent="Platforms" instance=ExtResource("2_k00bs")]
+position = Vector2(31, -19)
+
+[node name="meltable_ice_platform2" parent="Platforms" instance=ExtResource("2_k00bs")]
+position = Vector2(676, -22)
+
+[node name="Player" parent="." instance=ExtResource("2_pp30j")]
+position = Vector2(32, -517)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2, 4)
+zoom = Vector2(0.5, 0.5)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_pt2pi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65565, 0, 1, -524317, 65536, 1, -983069, 0, 1, -1441821, 65536, 1, -3276829, 65536, 1, -2818077, 0, 1, -2359325, 65536, 1, -1900573, 0, 1, -5111837, 65536, 1, -4653085, 0, 1, -4194333, 65536, 1, -3735581, 0, 1, -10616861, 65536, 1, -10158109, 0, 1, -9699357, 65536, 1, -9240605, 0, 1, -8781853, 65536, 1, -8323101, 0, 1, -7864349, 65536, 1, -7405597, 0, 1, -6946845, 65536, 1, -6488093, 0, 1, -6029341, 65536, 1, -5570589, 0, 1, -21168157, 65536, 1, -20709405, 0, 1, -20250653, 65536, 1, -19791901, 0, 1, -19333149, 65536, 1, -18874397, 0, 1, -18415645, 65536, 1, -17956893, 0, 1, -17498141, 65536, 1, -17039389, 0, 1, -16580637, 65536, 1, -16121885, 0, 1, -15663133, 65536, 1, -15204381, 0, 1, -14745629, 65536, 1, -14286877, 0, 1, -13828125, 65536, 1, -13369373, 0, 1, -12910621, 65536, 1, -12451869, 0, 1, -11993117, 65536, 1, -11534365, 0, 1, -11075613, 65536, 1, -21233370, 65536, 1, -20774618, 0, 1, -20315866, 65536, 1, -19857114, 0, 1, -19398362, 65536, 1, -18939610, 0, 1, -18480858, 65536, 1, -18022106, 0, 1, -17563354, 65536, 1, -17104602, 0, 1, -16645850, 65536, 1, -16187098, 0, 1, -15728346, 65536, 1, -15269594, 0, 1, -14810842, 65536, 1, -14352090, 0, 1, -13893338, 65536, 1, -13434586, 0, 1, -12975834, 65536, 1, -12517082, 0, 1, -12058330, 65536, 1, -11599578, 0, 1, -11140826, 65536, 1, -10682074, 65536, 1, -10223322, 0, 1, -9764570, 65536, 1, -9305818, 0, 1, -8847066, 65536, 1, -8388314, 0, 1, -7929562, 65536, 1, -7470810, 0, 1, -7012058, 65536, 1, -6553306, 0, 1, -6094554, 65536, 1, -5635802, 0, 1, -5177050, 65536, 1, -4718298, 0, 1, -4259546, 65536, 1, -3800794, 0, 1, -3342042, 65536, 1, -2883290, 0, 1, -2424538, 65536, 1, -1965786, 0, 1, -1507034, 65536, 1, -1048282, 0, 1, -589530, 65536, 1, -130778, 0, 1)
