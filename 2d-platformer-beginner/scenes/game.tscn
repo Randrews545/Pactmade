@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://c6o1qgs21kj61"]
+[gd_scene load_steps=13 format=4 uid="uid://c6o1qgs21kj61"]
 
 [ext_resource type="PackedScene" uid="uid://bylqwshjnjokj" path="res://scenes/player.tscn" id="1_bn1wi"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_un43p"]
 [ext_resource type="Texture2D" uid="uid://sla2htijt017" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="2_2lt0b"]
 [ext_resource type="PackedScene" uid="uid://dbvh6obv3jl43" path="res://scenes/platform.tscn" id="2_ii0d2"]
-[ext_resource type="PackedScene" uid="uid://c7vgbmc6l1f8u" path="res://scenes/slime.tscn" id="2_weh0b"]
 [ext_resource type="PackedScene" uid="uid://dn2tjp5oqrtnb" path="res://scenes/coin.tscn" id="4_l3ib3"]
 [ext_resource type="PackedScene" uid="uid://sir3yy8txqa1" path="res://scenes/killzone.tscn" id="5_lqx6e"]
 [ext_resource type="FontFile" uid="uid://b2kv410pq1v3u" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="7_dy06h"]
@@ -165,8 +164,6 @@ texture = ExtResource("2_2lt0b")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7semy")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5mm8d"]
-
 [sub_resource type="Animation" id="Animation_c4na0"]
 length = 0.001
 tracks/0/type = "value"
@@ -236,10 +233,7 @@ limit_bottom = 180
 limit_smoothed = true
 
 [node name="Killzone" parent="." instance=ExtResource("5_lqx6e")]
-position = Vector2(51, 179)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_5mm8d")
+position = Vector2(18, 144)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -287,17 +281,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_dy06h")
 theme_override_font_sizes/font_size = 8
 text = "Hello"
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Slime" parent="Enemies" instance=ExtResource("2_weh0b")]
-position = Vector2(24, 80)
-
-[node name="Slime2" parent="Enemies" instance=ExtResource("2_weh0b")]
-position = Vector2(601, 128)
-
-[node name="Slime3" parent="Enemies" instance=ExtResource("2_weh0b")]
-position = Vector2(744, 128)
-
-[node name="Slime4" parent="Enemies" instance=ExtResource("2_weh0b")]
-position = Vector2(680, 128)
