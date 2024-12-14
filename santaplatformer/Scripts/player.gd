@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -900.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var on_ice = false
@@ -57,8 +57,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("idle")
 		else:
 			animated_sprite_2d.play("run")
-	else:
-		animated_sprite_2d.play("jump")
 	
 	if(moving && on_ice):
 		direction = 0.0
