@@ -57,6 +57,11 @@ func _ready():
 	
 	#var instance = timeout.instantiate()
 	#add_child(instance)
+	
+func _on_timer_timeout() -> void:
+	
+	get_tree().reload_current_scene()
 
 func update_label_text():
 	time_label.text = str(ceil(time.time_left))
+	
