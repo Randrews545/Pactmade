@@ -6,6 +6,10 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var time = Timer
+var time_label = Label
+
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -40,3 +44,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	update_label_text()
+	
+func _ready():
+	#var timeout = preload("res://scripts/killzone.gd")
+	
+	time_label = $"../Player/Camera2D/Label"
+	time = 	$"../Player/Camera2D/Timer"
+	
+	time.start()
+	
+	#var instance = timeout.instantiate()
+	#add_child(instance)
+
+func update_label_text():
+	time_label.text = str(ceil(time.time_left))
