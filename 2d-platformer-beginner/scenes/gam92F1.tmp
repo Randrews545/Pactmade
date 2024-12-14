@@ -247,7 +247,7 @@ offset_bottom = -56.0
 text = "Placeholder"
 
 [node name="Killzone" parent="." instance=ExtResource("5_lqx6e")]
-position = Vector2(25, 202)
+position = Vector2(15, 205)
 collision_mask = 131
 
 [node name="Coins" type="Node" parent="."]
