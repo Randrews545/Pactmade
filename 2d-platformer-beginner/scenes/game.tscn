@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c6o1qgs21kj61"]
+[gd_scene load_steps=14 format=4 uid="uid://c6o1qgs21kj61"]
 
 [ext_resource type="PackedScene" uid="uid://bylqwshjnjokj" path="res://scenes/player.tscn" id="1_bn1wi"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_un43p"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dn2tjp5oqrtnb" path="res://scenes/coin.tscn" id="4_l3ib3"]
 [ext_resource type="PackedScene" uid="uid://sir3yy8txqa1" path="res://scenes/killzone.tscn" id="5_lqx6e"]
 [ext_resource type="FontFile" uid="uid://b2kv410pq1v3u" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="7_dy06h"]
+[ext_resource type="PackedScene" uid="uid://b1hharvh3l44a" path="res://scenes/ice_platform.tscn" id="8_v1ajy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7semy"]
 texture = ExtResource("2_2lt0b")
@@ -296,5 +297,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_dy06h")
 theme_override_font_sizes/font_size = 8
 text = "Hello"
+
+[node name="ice_platform" parent="." instance=ExtResource("8_v1ajy")]
+position = Vector2(143, 133)
+
+[node name="ice_platform2" parent="." instance=ExtResource("8_v1ajy")]
+position = Vector2(145, 67)
 
 [connection signal="timeout" from="Player/Camera2D/Timer" to="Player" method="_on_timer_timeout"]

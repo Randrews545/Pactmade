@@ -1,0 +1,1 @@
+class_name ICE extends CollisionShape2D
