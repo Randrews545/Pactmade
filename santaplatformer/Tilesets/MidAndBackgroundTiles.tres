@@ -1,0 +1,19 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://uhvf5vb8ss0t"]
+
+[ext_resource type="Texture2D" uid="uid://bnm1bnlsya8eh" path="res://Assets/Test Assets/SantaAssets_V3.png" id="1_lklpv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewnp7"]
+texture = ExtResource("1_lklpv")
+texture_region_size = Vector2i(180, 160)
+0:3/size_in_atlas = Vector2i(2, 1)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(159, -72, 158, 34, -161, 31, -159, -70)
+2:3/size_in_atlas = Vector2i(2, 1)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(159, -72, 158, 34, -161, 31, -159, -70)
+4:3/size_in_atlas = Vector2i(2, 1)
+4:3/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_ewnp7")
