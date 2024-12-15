@@ -9,6 +9,8 @@ var on_ice = false
 @onready var pos : Vector2;
 @onready var old_pos : Vector2;
 var moving : bool;
+var time = Timer
+var time_label = Label
 
 
 
@@ -70,7 +72,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, deceleration)
 
 	move_and_slide()
+	update_label_text()
 	
+func _ready():
+	
+	time_label = $"../Player/Camera2D/Label"
+	time = 	$"../Player/Camera2D/Timer"
+	
+	time.start()
+	
+	
+func _on_timer_timeout() -> void:
+	
+	get_tree().reload_current_scene()
+
+func update_label_text():
+	time_label.text = str(ceil(time.time_left))
 
 		
 	
