@@ -1,19 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://xyrrq1n72088"]
+[gd_scene load_steps=9 format=3 uid="uid://xyrrq1n72088"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_neylt"]
 [ext_resource type="Texture2D" uid="uid://bnm1bnlsya8eh" path="res://Assets/Test Assets/SantaAssets_V3.png" id="2_edm1q"]
+[ext_resource type="Texture2D" uid="uid://du0qiq8gef2qu" path="res://Assets/Test Assets/SantaAssets_V4.png" id="3_r5clq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0q2b"]
 atlas = ExtResource("2_edm1q")
 region = Rect2(1450, 0, 360, 360)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35luc"]
-atlas = ExtResource("2_edm1q")
-region = Rect2(10, 0, 360, 360)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qu4x"]
+atlas = ExtResource("3_r5clq")
+region = Rect2(0, 0, 358, 358)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_okrx2"]
-atlas = ExtResource("2_edm1q")
-region = Rect2(370, 0, 360, 360)
+[sub_resource type="AtlasTexture" id="AtlasTexture_28ub6"]
+atlas = ExtResource("3_r5clq")
+region = Rect2(358, 0, 358, 358)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxjp7"]
 animations = [{
@@ -27,10 +28,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_35luc")
+"texture": SubResource("AtlasTexture_8qu4x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_okrx2")
+"texture": SubResource("AtlasTexture_28ub6")
 }],
 "loop": true,
 "name": &"run",
