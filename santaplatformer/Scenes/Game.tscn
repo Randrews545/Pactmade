@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://11l3eeqih87x"]
+[gd_scene load_steps=6 format=4 uid="uid://11l3eeqih87x"]
 
 [ext_resource type="PackedScene" uid="uid://mep7oa3txqrl" path="res://Scenes/meltable_ice_platform.tscn" id="2_k00bs"]
 [ext_resource type="PackedScene" uid="uid://xyrrq1n72088" path="res://Scenes/player.tscn" id="2_pp30j"]
 [ext_resource type="TileSet" uid="uid://uhvf5vb8ss0t" path="res://Tilesets/MidAndBackgroundTiles.tres" id="3_0wjhd"]
+[ext_resource type="PackedScene" uid="uid://sir3yy8txqa1" path="res://Scenes/killzone.tscn" id="4_erups"]
 
 [sub_resource type="FontFile" id="FontFile_ldknn"]
 cache/0/16/0/ascent = 0.0
@@ -128,5 +129,8 @@ offset_bottom = -488.0
 theme_override_fonts/font = SubResource("FontFile_ldknn")
 theme_override_font_sizes/font_size = 100
 text = "[dynamic timer]"
+
+[node name="Killzone" parent="." instance=ExtResource("4_erups")]
+position = Vector2(2377, 715)
 
 [connection signal="timeout" from="Player/Camera2D/Timer" to="Player" method="_on_timer_timeout"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://sir3yy8txqa1"]
+
+[ext_resource type="Script" path="res://Scripts/killzone.gd" id="1_qydlx"]
+[ext_resource type="Texture2D" uid="uid://du0qiq8gef2qu" path="res://Assets/Test Assets/SantaAssets_V4.png" id="2_dva04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8y74"]
+size = Vector2(1836, 135.475)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgj12"]
+size = Vector2(1836, 13.125)
+
+[node name="Killzone" type="Area2D"]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_qydlx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.5, -4.00001)
+scale = Vector2(1.45891, 1.18256)
+texture = ExtResource("2_dva04")
+region_enabled = true
+region_rect = Rect2(0, 1072, 2519.5, 367.598)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.52588e-05, 87.475)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_p8y74")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(8, -200)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_vgj12")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
