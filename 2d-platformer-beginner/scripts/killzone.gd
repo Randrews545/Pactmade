@@ -10,7 +10,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if(body.name == "Player"):
 		print("You died!")
 		Engine.time_scale = 0.5
-		body.get_node("CollisionShape2D").queue_free()
+		#body.get_node("CollisionShape2D").queue_free()
+		body.die()
 		timer.start()
 	elif(body.get_node("ice_collision") is ICE):
 		print("ICE DELETE")
@@ -36,7 +37,11 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 	
 func _process(delta: float) -> void:
 	position.y += direction * SPEED * delta
+	
+
+	
+	
