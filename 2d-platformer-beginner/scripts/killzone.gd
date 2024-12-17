@@ -5,8 +5,6 @@ const SPEED = 10
 var direction = -1
 
 @onready var timer: Timer = $Timer
-@onready var tiles: TileMapLayer = $"../TileMap/Mid"
-@onready var tilemap: TileMap = $"../TileMap"
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.name == "Player"):

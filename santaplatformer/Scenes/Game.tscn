@@ -111,7 +111,7 @@ tile_set = ExtResource("3_0wjhd")
 rendering_quadrant_size = 160
 
 [node name="Player" parent="." instance=ExtResource("2_pp30j")]
-position = Vector2(72, -304)
+position = Vector2(68, -304)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(2, 4)
