@@ -54,3 +54,6 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -1)
 shape = SubResource("CircleShape2D_lugyv")
+
+[node name="WallBounceLockout" type="Timer" parent="."]
+wait_time = 0.3

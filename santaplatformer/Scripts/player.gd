@@ -5,6 +5,7 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -900.0
 const GRAVITY = Vector2(0,1200)
 
+@onready var wall_bounce_lockout: Timer = $WallBounceLockout
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var on_ice = false
 @onready var pos : Vector2;
@@ -63,7 +64,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite_2d.play("run")
 	
-	if(moving && on_ice):
+	if((moving && on_ice) || !is_on_floor()):
 		direction = 0.0
 
 	if direction:
@@ -81,7 +82,8 @@ func _physics_process(delta: float) -> void:
 	
 	if get_slide_collision_count() > 0:
 		collision = get_slide_collision(0)
-	if collision != null && collision.get_collider() is BOUNCE:
+	if collision != null && collision.get_collider() is BOUNCE && wall_bounce_lockout.is_stopped():
+		wall_bounce_lockout.start()
 		print("bounce")
 		velocity = tempVelocity.bounce(collision.get_normal())
 		velocity.y = velocity.y - 300
