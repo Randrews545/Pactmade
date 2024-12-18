@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -900.0
+const GRAVITY = Vector2(0,1200)
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var on_ice = false
@@ -15,6 +16,8 @@ var time_label = Label
 
 
 func _physics_process(delta: float) -> void:
+	var tempVelocity;
+	var collision;
 	
 	#set pos to current position
 	pos = global_position;
@@ -38,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += GRAVITY * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -70,8 +73,19 @@ func _physics_process(delta: float) -> void:
 		if(on_ice) :
 			deceleration = -20
 		velocity.x = move_toward(velocity.x, 0, deceleration)
+	
+	tempVelocity = velocity
 
 	move_and_slide()
+	
+	
+	if get_slide_collision_count() > 0:
+		collision = get_slide_collision(0)
+	if collision != null && collision.get_collider() is BOUNCE:
+		print("bounce")
+		velocity = tempVelocity.bounce(collision.get_normal())
+		velocity.y = velocity.y - 300
+	
 	update_label_text()
 	
 func _ready():

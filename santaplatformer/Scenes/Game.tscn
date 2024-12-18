@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://11l3eeqih87x"]
+[gd_scene load_steps=7 format=4 uid="uid://11l3eeqih87x"]
 
 [ext_resource type="PackedScene" uid="uid://mep7oa3txqrl" path="res://Scenes/meltable_ice_platform.tscn" id="2_k00bs"]
 [ext_resource type="PackedScene" uid="uid://xyrrq1n72088" path="res://Scenes/player.tscn" id="2_pp30j"]
 [ext_resource type="TileSet" uid="uid://uhvf5vb8ss0t" path="res://Tilesets/MidAndBackgroundTiles.tres" id="3_0wjhd"]
 [ext_resource type="PackedScene" uid="uid://sir3yy8txqa1" path="res://Scenes/killzone.tscn" id="4_erups"]
+[ext_resource type="PackedScene" uid="uid://qkf36dvcgnwp" path="res://Scenes/bounce_wall.tscn" id="5_eh8or"]
 
 [sub_resource type="FontFile" id="FontFile_ldknn"]
 cache/0/16/0/ascent = 0.0
@@ -132,5 +133,11 @@ text = "[dynamic timer]"
 
 [node name="Killzone" parent="." instance=ExtResource("4_erups")]
 position = Vector2(2377, 715)
+
+[node name="BounceWall" parent="." instance=ExtResource("5_eh8or")]
+position = Vector2(-749, -3104)
+
+[node name="BounceWall2" parent="." instance=ExtResource("5_eh8or")]
+position = Vector2(5163, -2770)
 
 [connection signal="timeout" from="Player/Camera2D/Timer" to="Player" method="_on_timer_timeout"]
