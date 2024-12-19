@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -900.0
-const GRAVITY = Vector2(0,1200)
+const SPEED = 1200.0
+const JUMP_VELOCITY = -1800.0
+const GRAVITY = Vector2(0,3000)
+const SLIDE = 0.05
+const BOUNCE_BOOST = 1.15
+const BOUNCE_VERT = -900
+const ICE_ACCELERATION = -30
 
+@onready var touched_ice: Timer = $TouchedIce
+@onready var movement_lockout: Timer = $MovementLockout
 @onready var wall_bounce_lockout: Timer = $WallBounceLockout
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var pos : Vector2
@@ -40,6 +46,8 @@ func _physics_process(delta: float) -> void:
 			if(get_last_slide_collision().get_collider() is ICE):
 					#print("a")
 					on_ice = true
+					touched_ice.start()
+					
 			else:
 				on_ice = false
 		
@@ -68,29 +76,29 @@ func _physics_process(delta: float) -> void:
 			else:
 				animated_sprite_2d.play("run")
 		
-		if((moving && on_ice) || !is_on_floor()):
+		if((moving && on_ice) || !movement_lockout.is_stopped()):
 			direction = 0.0
 
 		if direction:
 			velocity.x = direction * SPEED
 		else:
-			var deceleration = SPEED * 0.1;
+			var deceleration = SPEED * SLIDE;
 			if(on_ice) :
-				deceleration = -20
+				deceleration = ICE_ACCELERATION
 			velocity.x = move_toward(velocity.x, 0, deceleration)
 		
 		tempVelocity = velocity
 
 		move_and_slide()
 		
-		
 		if get_slide_collision_count() > 0:
 			collision = get_slide_collision(0)
-		if collision != null && collision.get_collider() is BOUNCE && wall_bounce_lockout.is_stopped():
+		if collision != null && collision.get_collider() is BOUNCE && wall_bounce_lockout.is_stopped() && !touched_ice.is_stopped():
 			wall_bounce_lockout.start()
+			movement_lockout.start()
 			print("bounce")
-			velocity = tempVelocity.bounce(collision.get_normal())
-			velocity.y = velocity.y - 300
+			velocity = tempVelocity.bounce(collision.get_normal()) * BOUNCE_BOOST
+			velocity.y = velocity.y + BOUNCE_VERT
 		
 		update_label_text()
 	
@@ -120,3 +128,15 @@ func update_label_text():
 
 func _on_death_anim_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_wall_bounce_lockout_timeout() -> void:
+	wall_bounce_lockout.stop()
+
+
+func _on_movement_lockout_timeout() -> void:
+	movement_lockout.stop()
+
+
+func _on_touched_ice_timeout() -> void:
+	touched_ice.stop()

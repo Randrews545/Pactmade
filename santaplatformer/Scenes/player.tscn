@@ -56,8 +56,16 @@ position = Vector2(-2, -1)
 shape = SubResource("CircleShape2D_lugyv")
 
 [node name="WallBounceLockout" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.8
 
 [node name="DeathAnimTimer" type="Timer" parent="."]
 
+[node name="MovementLockout" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="TouchedIce" type="Timer" parent="."]
+
+[connection signal="timeout" from="WallBounceLockout" to="." method="_on_wall_bounce_lockout_timeout"]
 [connection signal="timeout" from="DeathAnimTimer" to="." method="_on_death_anim_timer_timeout"]
+[connection signal="timeout" from="MovementLockout" to="." method="_on_movement_lockout_timeout"]
+[connection signal="timeout" from="TouchedIce" to="." method="_on_touched_ice_timeout"]
