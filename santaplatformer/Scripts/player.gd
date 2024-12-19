@@ -22,6 +22,7 @@ var time = Timer
 var death_timer = Timer
 var time_label = Label
 var is_alive = true
+var double_jump = 0
 
 
 
@@ -59,6 +60,11 @@ func _physics_process(delta: float) -> void:
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			double_jump = 0
+			
+		if Input.is_action_just_pressed("jump") and not is_on_floor() and double_jump == 0:
+			velocity.y = JUMP_VELOCITY
+			double_jump = 2
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
