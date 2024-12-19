@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1bwva4axhvp1"]
+
+[ext_resource type="Texture2D" uid="uid://df2awbk77yk5c" path="res://Assets/Test Assets/you-win-in-christmas-background-pine-branchs-2CB4YM7.jpg" id="1_iakua"]
+
+[node name="Win Screen" type="Node2D"]
+
+[node name="You-win-in-christmas-background-pine-branchs-2cb4ym7" type="Sprite2D" parent="."]
+position = Vector2(682.5, 418.25)
+scale = Vector2(0.885385, 1.12087)
+texture = ExtResource("1_iakua")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(683, 419)

@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 10
+const SPEED = 400
 
 var direction = -1
 
@@ -10,10 +10,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if(body.name == "Player"):
 		print("You died!")
 		Engine.time_scale = 0.5
-		#body.get_node("CollisionShape2D").queue_free()
 		body.die()
 		timer.start()
-	elif(body.get_node("ice_collision") is ICE):
+	elif(body.get_node("CollisionShape2D").get_parent() is ICE):
 		print("ICE DELETE")
 		body.queue_free()
 	
@@ -41,7 +40,3 @@ func _on_timer_timeout() -> void:
 	
 func _process(delta: float) -> void:
 	position.y += direction * SPEED * delta
-	
-
-	
-	

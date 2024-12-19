@@ -8,16 +8,18 @@ const JUMP_VELOCITY = -300.0
 
 var time = Timer
 var time_label = Label
+var is_alive = true
+var death_timer = Timer
 
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and is_alive:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and is_alive:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -38,30 +40,38 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("jump")
 	
 
-	if direction:
+	if direction and is_alive:
 		velocity.x = direction * SPEED
-	else:
+	elif is_alive:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	else:
+		pass
 
 	move_and_slide()
 	
 	update_label_text()
 	
 func _ready():
-	#var timeout = preload("res://scripts/killzone.gd")
-	
 	time_label = $"../Player/Camera2D/Label"
 	time = 	$"../Player/Camera2D/Timer"
+	death_timer = $Death_Animation_Timer
 	
 	time.start()
 	
-	#var instance = timeout.instantiate()
-	#add_child(instance)
-	
 func _on_timer_timeout() -> void:
+	die()
 	
-	get_tree().reload_current_scene()
 
 func update_label_text():
 	time_label.text = str(ceil(time.time_left))
 	
+func die():
+	is_alive = false
+	death_timer.start()
+	animated_sprite_2d.play("idle")
+		
+	
+
+
+func _on_death_animation_timer_timeout() -> void:
+	get_tree().reload_current_scene()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b72byg2kn3g22"]
+
+[ext_resource type="Script" path="res://scenes/win_zone.gd" id="1_pvefv"]
+[ext_resource type="Texture2D" uid="uid://dttclon6lx8ax" path="res://you-win-in-christmas-background-pine-branchs-2CB4YM7.jpg" id="2_44cmy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oslmt"]
+size = Vector2(80.25, 48)
+
+[node name="WinZone" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_pvefv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.125, 0)
+shape = SubResource("RectangleShape2D_oslmt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.33786e-06, -2.38419e-06)
+scale = Vector2(0.0615385, 0.0834783)
+texture = ExtResource("2_44cmy")
