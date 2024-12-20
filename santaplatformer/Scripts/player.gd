@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 1200.0
-const JUMP_VELOCITY = -1800.0
+const JUMP_VELOCITY = -1650.0
 const GRAVITY = Vector2(0,3000)
 const SLIDE = 0.05
 const BOUNCE_BOOST = 1.15
