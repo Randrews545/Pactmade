@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clrtc0u1uty7j"
-path="res://.godot/imported/slime_purple.png-3bc92598dc90a69a9d87b49b5f1bd703.ctex"
+uid="uid://q8dpamsjq21e"
+path="res://.godot/imported/SantaStartScreenFINAL.png-3acc6106fd623ea3db0c0af1fc04b161.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TempAssets/sprites/slime_purple.png"
-dest_files=["res://.godot/imported/slime_purple.png-3bc92598dc90a69a9d87b49b5f1bd703.ctex"]
+source_file="res://Assets/Test Assets/SantaStartScreenFINAL.png"
+dest_files=["res://.godot/imported/SantaStartScreenFINAL.png-3acc6106fd623ea3db0c0af1fc04b161.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c3pkyfpc7kfys"
+path="res://.godot/imported/Christmas synths.ogg-b0634ece1a11619eafcfec460c37db82.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Test Assets/Audio/Christmas synths.ogg"
+dest_files=["res://.godot/imported/Christmas synths.ogg-b0634ece1a11619eafcfec460c37db82.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
