@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://sir3yy8txqa1"]
+[gd_scene load_steps=6 format=3 uid="uid://sir3yy8txqa1"]
 
 [ext_resource type="Script" path="res://Scripts/killzone.gd" id="1_qydlx"]
 [ext_resource type="Texture2D" uid="uid://du0qiq8gef2qu" path="res://Assets/Test Assets/SantaAssets_V4.png" id="2_dva04"]
+[ext_resource type="Texture2D" uid="uid://cihp8qsvf4wvv" path="res://Assets/Test Assets/SantaAssets_V5_Final.png" id="3_yly3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8y74"]
 size = Vector2(1836, 109.475)
@@ -34,6 +35,13 @@ shape = SubResource("RectangleShape2D_p8y74")
 position = Vector2(4, -136)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_vgj12")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 396)
+scale = Vector2(10.3211, 1)
+texture = ExtResource("3_yly3h")
+region_enabled = true
+region_rect = Rect2(1800.95, 0, 355.835, 363.83)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
