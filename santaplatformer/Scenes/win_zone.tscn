@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6na0ctvmvao8" path="res://Assets/Test Assets/Finish Line Flag.png" id="2_t33jf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oslmt"]
-size = Vector2(550.25, 168)
+size = Vector2(784.25, 333)
 
 [node name="WinZone" type="Area2D"]
 collision_layer = 3
@@ -12,12 +12,12 @@ collision_mask = 3
 script = ExtResource("1_1usic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(234.875, -60)
+position = Vector2(351.875, 22.5)
 shape = SubResource("RectangleShape2D_oslmt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(235, -60)
-scale = Vector2(0.282776, 0.159848)
+position = Vector2(352.5, 22.9999)
+scale = Vector2(0.403599, 0.317793)
 texture = ExtResource("2_t33jf")
 region_enabled = true
 region_rect = Rect2(-20.5667, 14.3347, 1945.97, 1051.33)
