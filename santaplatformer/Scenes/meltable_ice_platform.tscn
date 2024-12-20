@@ -1,8 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://mep7oa3txqrl"]
+[gd_scene load_steps=8 format=3 uid="uid://mep7oa3txqrl"]
 
 [ext_resource type="Script" path="res://Scripts/meltable_ice_platform.gd" id="1_1qo8a"]
 [ext_resource type="Script" path="res://Scripts/ice_platform.gd" id="1_dj5fv"]
-[ext_resource type="Texture2D" uid="uid://du0qiq8gef2qu" path="res://Assets/Test Assets/SantaAssets_V4.png" id="3_htijq"]
+[ext_resource type="Texture2D" uid="uid://cihp8qsvf4wvv" path="res://Assets/Test Assets/SantaAssets_V5_Final.png" id="3_j37us"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1pqg"]
+atlas = ExtResource("3_j37us")
+region = Rect2(1108, 364, 662, 364)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1eq8"]
+atlas = ExtResource("3_j37us")
+region = Rect2(1108, 728, 662, 364)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iogjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1pqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1eq8")
+}],
+"loop": false,
+"name": &"melt",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3a8n"]
 size = Vector2(639.5, 34.25)
@@ -15,12 +37,14 @@ collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_dj5fv")
 
-[node name="Sprite2D" type="Sprite2D" parent="ice_platform"]
-texture = ExtResource("3_htijq")
-region_enabled = true
-region_rect = Rect2(1119.99, 488.639, 640.496, 105.964)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ice_platform"]
+position = Vector2(-1, 8)
+sprite_frames = SubResource("SpriteFrames_iogjf")
+animation = &"melt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ice_platform"]
 position = Vector2(0.25, -32.125)
 shape = SubResource("RectangleShape2D_k3a8n")
 one_way_collision = true
+
+[connection signal="animation_finished" from="ice_platform/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
