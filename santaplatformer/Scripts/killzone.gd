@@ -14,7 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 		timer.start()
 	elif(body.get_node("CollisionShape2D").get_parent() is ICE):
 		print("ICE DELETE")
-		body.queue_free()
+		body.get_parent().meltPlatform();
 	
 	
 	
