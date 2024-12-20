@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1bwva4axhvp1"]
+[gd_scene load_steps=3 format=3 uid="uid://b1bwva4axhvp1"]
 
 [ext_resource type="Texture2D" uid="uid://bwulrxxcdkxq0" path="res://Assets/Test Assets/SantaWin.png" id="1_o7m4f"]
+[ext_resource type="AudioStream" uid="uid://bhh3itqgqbosf" path="res://Assets/Test Assets/Audio/Victory.mp3" id="2_q13af"]
 
 [node name="Win Screen" type="Node2D"]
 
@@ -11,3 +12,7 @@ texture = ExtResource("1_o7m4f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(683, 419)
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q13af")
+autoplay = true

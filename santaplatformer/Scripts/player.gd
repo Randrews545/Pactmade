@@ -15,6 +15,8 @@ const ICE_ACCELERATION = -30
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var pos : Vector2
 @onready var old_pos : Vector2
+@onready var bounce_sfx: AudioStreamPlayer = $BounceSFX
+@onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 
 
 var on_ice = false
@@ -62,10 +64,12 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			double_jump = 0
+			jump_sfx.play()
 			
 		if Input.is_action_just_pressed("jump") and not is_on_floor() and double_jump == 0:
 			velocity.y = JUMP_VELOCITY
 			double_jump = 2
+			jump_sfx.play()
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -104,6 +108,7 @@ func _physics_process(delta: float) -> void:
 			wall_bounce_lockout.start()
 			movement_lockout.start()
 			print("bounce")
+			bounce_sfx.play()
 			velocity = tempVelocity.bounce(collision.get_normal()) * BOUNCE_BOOST
 			velocity.y = velocity.y + BOUNCE_VERT
 		
