@@ -1,8 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://xyrrq1n72088"]
+[gd_scene load_steps=13 format=3 uid="uid://xyrrq1n72088"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_neylt"]
+[ext_resource type="Texture2D" uid="uid://cihp8qsvf4wvv" path="res://Assets/Test Assets/SantaAssets_V5_Final.png" id="2_2g4qu"]
 [ext_resource type="Texture2D" uid="uid://bnm1bnlsya8eh" path="res://Assets/Test Assets/SantaAssets_V3.png" id="2_edm1q"]
 [ext_resource type="Texture2D" uid="uid://du0qiq8gef2qu" path="res://Assets/Test Assets/SantaAssets_V4.png" id="3_r5clq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn5r0"]
+atlas = ExtResource("2_2g4qu")
+region = Rect2(720, 0, 360, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmtae"]
+atlas = ExtResource("2_2g4qu")
+region = Rect2(1080, 0, 360, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfuoc"]
+atlas = ExtResource("2_2g4qu")
+region = Rect2(1440, 0, 360, 360)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0q2b"]
 atlas = ExtResource("2_edm1q")
@@ -18,6 +31,20 @@ region = Rect2(358, 0, 358, 358)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxjp7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn5r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmtae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfuoc")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0q2b")
@@ -48,8 +75,10 @@ script = ExtResource("1_neylt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_xxjp7")
-animation = &"run"
+animation = &"death"
 autoplay = "idle"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -1)
