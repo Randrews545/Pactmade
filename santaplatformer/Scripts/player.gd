@@ -118,7 +118,7 @@ func _ready():
 func die():
 	is_alive = false
 	death_timer.start()
-	animated_sprite_2d.play("idle")
+	animated_sprite_2d.play("death")
 	
 	
 func _on_timer_timeout() -> void:
