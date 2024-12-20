@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://sir3yy8txqa1"]
+[gd_scene load_steps=8 format=3 uid="uid://sir3yy8txqa1"]
 
 [ext_resource type="Script" path="res://Scripts/killzone.gd" id="1_qydlx"]
-[ext_resource type="Texture2D" uid="uid://du0qiq8gef2qu" path="res://Assets/Test Assets/SantaAssets_V4.png" id="2_dva04"]
 [ext_resource type="Texture2D" uid="uid://cihp8qsvf4wvv" path="res://Assets/Test Assets/SantaAssets_V5_Final.png" id="3_yly3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8y74"]
@@ -10,7 +9,30 @@ size = Vector2(1836, 109.475)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vgj12"]
 size = Vector2(1836, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6gt6"]
+atlas = ExtResource("3_yly3h")
+region = Rect2(0, 1083, 2520, 361)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3utr"]
+atlas = ExtResource("3_yly3h")
+region = Rect2(0, 1444, 2520, 361)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11bc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6gt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3utr")
+}],
+"loop": true,
+"name": &"Fire Animation",
+"speed": 5.0
+}]
+
 [node name="Killzone" type="Area2D"]
+position = Vector2(0, -48)
 scale = Vector2(2, 2)
 collision_mask = 2
 script = ExtResource("1_qydlx")
@@ -18,13 +40,6 @@ script = ExtResource("1_qydlx")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.5, -2.49988)
-scale = Vector2(1.45891, 1.19074)
-texture = ExtResource("2_dva04")
-region_enabled = true
-region_rect = Rect2(0, 1072, 2519.5, 367.598)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.52588e-05, 113.475)
@@ -42,6 +57,13 @@ scale = Vector2(10.3211, 1)
 texture = ExtResource("3_yly3h")
 region_enabled = true
 region_rect = Rect2(1800.95, 0, 355.835, 363.83)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.05312e-05, 35.7472)
+scale = Vector2(1.45714, 1.02079)
+sprite_frames = SubResource("SpriteFrames_11bc8")
+animation = &"Fire Animation"
+autoplay = "Fire Animation"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
