@@ -77,10 +77,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.flip_h = true
 		
 		if is_on_floor():
-			if direction == 0 :
-				animated_sprite_2d.play("idle")
-			else:
-				animated_sprite_2d.play("run")
+			animated_sprite_2d.play("run")
 		
 		if((moving && on_ice) || !movement_lockout.is_stopped()):
 			direction = 0.0

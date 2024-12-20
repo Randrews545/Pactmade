@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnw6lxlb4qsd0"]
 
 [ext_resource type="Script" path="res://Scripts/win_zone.gd" id="1_1usic"]
-[ext_resource type="Texture2D" uid="uid://df2awbk77yk5c" path="res://Assets/Test Assets/you-win-in-christmas-background-pine-branchs-2CB4YM7.jpg" id="2_fgjti"]
+[ext_resource type="Texture2D" uid="uid://c6na0ctvmvao8" path="res://Assets/Test Assets/Finish Line Flag.png" id="2_t33jf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oslmt"]
 size = Vector2(550.25, 168)
@@ -16,8 +16,10 @@ position = Vector2(234.875, -60)
 shape = SubResource("RectangleShape2D_oslmt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(234.5, -59.5)
-scale = Vector2(0.422308, 0.290435)
-texture = ExtResource("2_fgjti")
+position = Vector2(235, -60)
+scale = Vector2(0.282776, 0.159848)
+texture = ExtResource("2_t33jf")
+region_enabled = true
+region_rect = Rect2(-20.5667, 14.3347, 1945.97, 1051.33)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
