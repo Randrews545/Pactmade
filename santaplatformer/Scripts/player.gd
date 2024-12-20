@@ -16,6 +16,7 @@ const ICE_ACCELERATION = -30
 @onready var pos : Vector2
 @onready var old_pos : Vector2
 
+
 var on_ice = false
 var moving : bool
 var time = Timer

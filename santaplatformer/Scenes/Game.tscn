@@ -5,6 +5,9 @@
 [ext_resource type="TileSet" uid="uid://uhvf5vb8ss0t" path="res://Tilesets/MidAndBackgroundTiles.tres" id="3_0wjhd"]
 [ext_resource type="PackedScene" uid="uid://sir3yy8txqa1" path="res://Scenes/killzone.tscn" id="4_erups"]
 [ext_resource type="Texture2D" uid="uid://cihp8qsvf4wvv" path="res://Assets/Test Assets/SantaAssets_V5_Final.png" id="4_rdgt2"]
+[ext_resource type="PackedScene" path="res://Scenes/bounce_wall.tscn" id="5_eh8or"]
+[ext_resource type="PackedScene" uid="uid://cnw6lxlb4qsd0" path="res://Scenes/win_zone.tscn" id="6_m8g6o"]
+[ext_resource type="Texture2D" uid="uid://cihp8qsvf4wvv" path="res://Assets/Test Assets/SantaAssets_V5_Final.png" id="4_rdgt2"]
 [ext_resource type="PackedScene" uid="uid://qkf36dvcgnwp" path="res://Scenes/bounce_wall.tscn" id="5_eh8or"]
 [ext_resource type="PackedScene" uid="uid://cnw6lxlb4qsd0" path="res://Scenes/win_zone.tscn" id="6_m8g6o"]
 
